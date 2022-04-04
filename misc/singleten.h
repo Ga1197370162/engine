@@ -3,6 +3,7 @@
 #define __SINGLETEN_H__
 
 #include <memory>
+#include <assert.h>
 #include <pthread.h>
 
 //  单例类模板
@@ -24,6 +25,7 @@ namespace engine {
         public:
         static T* GetInstance() {
             pthread_once(&once,&singleten::initiazer);
+            assert(single != nullptr);
             return single.get();
         }
     };
