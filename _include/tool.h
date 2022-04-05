@@ -7,4 +7,6 @@
 #include "mutex_lock.h"         //  互斥器封装
 #include "condition.h"          //  条件变量
 
+#include "memory_pool.h"        //  内存池
+
 #endif

@@ -36,11 +36,11 @@ $(BIN):$(LINK_OBJ)
 	$(CC) -o $@ $^ -std=c++11 -lpthread
 
 $(LINK_OBJ_DIR)/%.o:%.cpp
-	$(CC) -I$(INCLUDE_PATH) -I$(MISC_PATH) -o $@ -c $(filter %.cpp,$^)
+	$(CC) $(addprefix -I,$(INCLUDE_PATH)) -o $@ -c $(filter %.cpp,$^)
 
 $(DEP_DIR)/%.d:%.cpp
 	echo -n $(LINK_OBJ_DIR)/ > $@
-	gcc -I$(INCLUDE_PATH) -I$(MISC_PATH) -MM $^ >> $@
+	gcc $(addprefix -I,$(INCLUDE_PATH)) -MM $^ >> $@
 
 
 
